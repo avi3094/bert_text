@@ -1,8 +1,6 @@
 scikit-learn==1.2.2
 Pillow==9.4.0
 streamlit==1.28.2
-shap==0.43.0
-streamlit-shap==1.0.2
 catboost==1.2.2
 pathlib==1.0.1
 scipy==1.11.3
@@ -10,7 +8,6 @@ sklearn-pandas==2.2.0
 matplotlib==3.7.1
 tqdm==4.66.1
 urllib3==2.0.7
-lightgbm==4.1.0
 seaborn==0.12.2
 pandas==1.5.3
 numpy==1.23.5

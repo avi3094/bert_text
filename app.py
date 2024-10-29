@@ -4,8 +4,6 @@ import pickle  # архиватор модели
 import streamlit as st  # веб-приложение (интерактивный дашборд)
 from PIL import Image  # работа с изображением
 import pandas as pd  # работа с данными
-from pandas import json_normalize
-import catboost
 
 from getdataapi import gettedData, writedToFile
 
@@ -160,11 +158,11 @@ st.write(df_text)
 
 text = new_comment
 methods = dir(text_analysis_model)
-analysis = pipe(text)
+# analysis = pipe(text)
 
 print(text_analysis_model)
 print(text)
 
 # вывести предсказание модели МКБ
 st.write("## Оценка тональности комментария")
-st.write(f"{analysis:.2f}")
+# st.write(f"{analysis:.2f}")
