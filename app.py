@@ -2,7 +2,8 @@ from pathlib import Path  # путь по папки
 import pickle  # архиватор модели
 
 import streamlit as st  # веб-приложение (интерактивный дашборд)
-from PIL import Image  # работа с изображением
+
+# from PIL import Image  # работа с изображением
 import pandas as pd  # работа с данными
 
 from getdataapi import gettedData, writedToFile
@@ -24,13 +25,13 @@ st.set_page_config(
 
 # функция для загрузки картики с диска
 # кэшируем иначе каждый раз будет загружатся заново
-@st.cache_data
-def load_image(image_path):
-    image = Image.open(image_path)
-    # обрезка до нужного размера с сохранинием пропорций
-    MAX_SIZE = (600, 400)
-    image.thumbnail(MAX_SIZE)
-    return image
+# @st.cache_data
+# def load_image(image_path):
+#     image = Image.open(image_path)
+#     # обрезка до нужного размера с сохранинием пропорций
+#     MAX_SIZE = (600, 400)
+#     image.thumbnail(MAX_SIZE)
+#     return image
 
 
 # функция загрузки модели
@@ -46,8 +47,8 @@ def load_model(model_path):
 # ------------- загрузка картинки для страницы и модели ---------
 
 # путь до картинки
-image_path = Path.cwd() / "sentiment_analysis.jpg"
-image = load_image(image_path)
+# image_path = Path.cwd() / "sentiment_analysis.jpg"
+# image = load_image(image_path)
 
 # путь до модели
 # model_path = Path.cwd() / "model.pkl"
