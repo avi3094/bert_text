@@ -61,8 +61,8 @@ text_analysis_model = load_model(model_bert_path)
 # отрисовка картинки на странице
 c1, c2 = st.columns(2)
 
-with c2:
-    st.image(image)
+# with c2:
+#     st.image(image)
 
 # ---------- отрисовка текста и картинки ------------------------
 with c1:
