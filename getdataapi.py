@@ -3,6 +3,9 @@ import requests, pickle, sys
 ###Получение данных с API dummyjson.
 URL_C = "https://dummyjson.com/comments"
 
+# Пустая перемнная в глобальной области видимости.
+writedToFile = ""
+
 
 # функция получения json комментариев
 def getData(url):
@@ -18,7 +21,7 @@ def getData(url):
 
 # Поскольку, я так и не смог сделать видимой переменную dataAPI из области функции в глобальную, запишу её так в переменную.
 gettedData = getData(URL_C)
-print("Полученные данные?", gettedData)
+print("Полученные данные:", gettedData)
 
 
 # функция записи в json файл

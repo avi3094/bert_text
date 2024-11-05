@@ -52,8 +52,8 @@ with c2:
 with c1:
     st.write("""# Анализ тональности комментариев""")
 
-if "clicked" not in st.session_state:
-    st.session_state.clicked = False
+    if "clicked" not in st.session_state:
+        st.session_state.clicked = False
 
 
 def click_button_data():
@@ -68,6 +68,9 @@ if st.session_state.clicked:
 st.button("Получить данные", on_click=click_button_data)
 
 # ====================== боковое меню для ввода данных ===============
+
+placeholder_text = "Eng"
+
 st.sidebar.header("Входные данные пользователя:")
 
 st.sidebar.title("Введите комментарий для оценки")
