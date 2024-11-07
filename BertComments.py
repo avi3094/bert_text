@@ -1,16 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-# библиотека с моделями и библиотека с датасетами
-# get_ipython().system("pip install -q transformers datasets")
-
-
-# In[2]:
-
-
 import re
 from tqdm.notebook import tqdm
 from typing import Union, List
@@ -101,7 +88,7 @@ from transformers import pipeline
 
 # инициализация пайплайна - нужно указать модель и задачу либо что то одно
 pipe = pipeline("text-classification", model="bert-base-uncased")
-
+me_pipe = pipeline(model="avi30/avitest-pipeline", trust_remote_code=True)
 # Предикт
 text = "Replace me by any text you'd like."
 
@@ -111,8 +98,6 @@ out
 
 # ### Анализ тональности текста
 # **Анализ тональности через pipeline**
-
-from transformers import pipeline
 
 # инициализация пайплайна
 pipe = pipeline("text-classification")
@@ -124,3 +109,10 @@ def predict_pipe(text):
     print("Тональность комментария: ", output_text[0]["label"])
     print(type(output_text))
     return output_text
+
+
+def predict_pipe_custom(text):
+    output_text_custom = me_pipe(text)
+    print("Тональность комментария: ", output_text_custom[0]["label"])
+    print("Кастомный: ", output_text_custom)
+    return output_text_custom

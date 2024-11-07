@@ -3,9 +3,6 @@ import requests, pickle, sys
 ###Получение данных с API dummyjson.
 URL_C = "https://dummyjson.com/comments"
 
-# Пустая перемнная в глобальной области видимости.
-writedToFile = ""
-
 
 # функция получения json комментариев
 def getData(url):

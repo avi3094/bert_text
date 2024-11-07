@@ -4,9 +4,10 @@ import streamlit as st  # веб-приложение (интерактивны�
 
 from PIL import Image  # работа с изображением
 import pandas as pd  # работа с данными
+import torch
 
 from getdataapi import gettedData, writedToFile
-from BertComments import predict_pipe
+from BertComments import predict_pipe, predict_pipe_custom
 from itertools import chain
 
 # from modelBertTextSentAnalysis import pipe
@@ -65,7 +66,8 @@ if st.session_state.clicked:
     gettedData
     writedToFile
 
-st.button("Получить данные", on_click=click_button_data)
+# Убрал кнопку, т.к. не могу сделать state - состояние приложения.
+# st.button("Получить данные", on_click=click_button_data)
 
 # ====================== боковое меню для ввода данных ===============
 st.sidebar.header("Входные данные пользователя:")
@@ -76,14 +78,22 @@ new_comment = st.sidebar.text_input(
     key="simple_comment",
 )
 text = new_comment
-print(text)
-print(predict_pipe(text))
+# print(text)
+# print(predict_pipe(text))
+print(predict_pipe_custom(text))
+print("Кастомный:", predict_pipe_custom(text))
 
 answer = predict_pipe(text)
+answer_custom = predict_pipe_custom(text)
 
 st.sidebar.title("Результат:")
 st.sidebar.write("Тональность: ", answer[0]["label"])
 st.sidebar.write("Точность оценки: ", answer[0]["score"])
+
+st.sidebar.title("Результат:")
+st.sidebar.write("Тональность: ", answer_custom[0]["label"])
+st.sidebar.write("Точность оценки: ", answer_custom[0]["score"])
+
 
 # Обработка json в pandas датафрейм.
 df_text = pd.json_normalize(gettedData)
